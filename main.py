@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from GithubUserReposInfo import GithubUserReposInfo
 
 app = FastAPI()
 
@@ -9,8 +10,9 @@ def root():
 
 
 @app.get("/{login}")
-def list_repos(login):
-    return {"login": login}
+def get_user(login):
+    user = GithubUserReposInfo(login)
+    return {"Strona dla użytkownika": login}
 
 
 @app.get("/{login}/repos")
@@ -20,4 +22,5 @@ def list_repos(login):
 
 @app.get("/{login}/stars")
 def stars_number(login):
-    return {"stars_number"}
+    user = GithubUserReposInfo(login)
+    return {"stars_number": user.get_star_number()}

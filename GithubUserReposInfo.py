@@ -23,8 +23,3 @@ class GithubUserReposInfo():
     def list_repos(self):
         for repo in self._repos.json():
             print(repo['name'])
-
-
-TestUser = GithubUserReposInfo("Mitchu727")
-TestUser.list_repos()
-print(TestUser.get_star_number())
