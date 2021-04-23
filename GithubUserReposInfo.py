@@ -1,5 +1,5 @@
 import requests
-
+import json
 
 class GithubUserReposInfo():
     def __init__(self, login):
@@ -21,5 +21,7 @@ class GithubUserReposInfo():
         return star_number
 
     def list_repos(self):
+        repos_list = []
         for repo in self._repos.json():
-            print(repo['name'])
+            repos_list.append({repo['name']: repo['stargazers_count']})
+        return repos_list
