@@ -16,3 +16,8 @@ def list_repos(login):
 @app.get("/{login}/repos")
 def list_repos(login):
     return {"repos string 1", "repos string 2"}
+
+
+@app.get("/{login}/stars")
+def stars_number(login):
+    return {"stars_number"}
