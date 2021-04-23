@@ -11,3 +11,8 @@ def root():
 @app.get("/{login}")
 def list_repos(login):
     return {"login": login}
+
+
+@app.get("/{login}/repos")
+def list_repos(login):
+    return {"repos string 1", "repos string 2"}
