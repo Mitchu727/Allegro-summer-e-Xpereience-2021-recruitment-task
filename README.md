@@ -27,7 +27,7 @@ To count stars in all of users repos you should use: http://127.0.0.1:8000/usern
 for example:  
 http://127.0.0.1:8000/Mitchu727/stars
 ## Notes
-First issues was that, at the one stage of the project a decision was needed to make whether it would be better to story information about repos in an object or making request every time. I've decided to the second solution due to the task requirements and fastapi architecture.  
+First issue I had to deal with, was to choose whether to store information about repos in an object or make a request every time. I've decided on the second solution due to the task requirements and fastapi architecture.  
 Second issue was the case of the loading data about repos. At first they were loaded during the initialization of the GithubUserReposInfo object (by the way the existence of the user would also be checked) but later I've decided to implement a method that checks whether the user exists separately and have placed it in the constructor. Data is loaded before a method that counts stars or list repos. This solution would be better if one's creating a list of this objects for the later use and it also makes the app easier to extend.
 ## Further improvements
 ### Optimalization
