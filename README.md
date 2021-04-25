@@ -6,6 +6,10 @@ To run this app you should have *fastapi*, *uvicorn* and *requests* libraries in
 
 `pip install fastapi requests uvicorn`
 
+If you want to run the tests, you will also need pytest so run:
+
+`pip install pytest`
+
 To launch server run in repository directory:
 
 `uvicorn main:app --reload`
