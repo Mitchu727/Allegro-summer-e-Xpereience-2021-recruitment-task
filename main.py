@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from GithubUserReposInfo import GithubUserReposInfo
 
 app = FastAPI()
@@ -11,7 +11,7 @@ def root():
 
 @app.get("/{login}")
 def get_user(login):
-    user = GithubUserReposInfo(login)
+    GithubUserReposInfo(login)
     return {"Informacje dla użytkownika": login}
 
 
