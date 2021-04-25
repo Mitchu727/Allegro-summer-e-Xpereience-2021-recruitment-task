@@ -1,5 +1,5 @@
 import requests
-
+from fastapi import HTTPException
 
 class GithubUserReposInfo():
     def __init__(self, login):
@@ -36,4 +36,5 @@ class GithubUserReposInfo():
 
     def check_request(self, request):
         if (request.status_code >= 400):
-            raise Exception(request.json()['message'])
+            raise HTTPException(status_code=request.status_code,
+                                detail=request.json()['message'])

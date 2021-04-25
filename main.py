@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from GithubUserReposInfo import GithubUserReposInfo
 
 app = FastAPI()
@@ -6,13 +6,13 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"message": "Hello World"}
+    return "Repository browser"
 
 
 @app.get("/{login}")
 def get_user(login):
-    # user = GithubUserReposInfo(login)
-    return {"Strona dla użytkownika": login}
+    user = GithubUserReposInfo(login)
+    return {"Informacje dla użytkownika": login}
 
 
 @app.get("/{login}/repos")
@@ -24,4 +24,4 @@ def list_repos(login):
 @app.get("/{login}/stars")
 def stars_number(login):
     user = GithubUserReposInfo(login)
-    return {user.get_star_number()}
+    return {user.get_stars_number()}
