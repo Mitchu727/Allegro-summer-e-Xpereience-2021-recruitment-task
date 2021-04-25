@@ -12,7 +12,7 @@ def root():
 @app.get("/{login}")
 def get_user(login):
     GithubUserReposInfo(login)
-    return {"Informacje dla użytkownika": login}
+    return {"User with given username exists": login}
 
 
 @app.get("/{login}/repos")
